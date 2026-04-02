@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventos | Parrilla Silva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="index.html">
+        <img src="images/Logo.png" alt="Logo Parrilla Silva" />
+        <div>
+          <strong>Parrilla Silva</strong>
+          <span>Porto Alegre • RS</span>
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+      <div class="nav-links">
+        <a href="sobre.html">Sobre</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="eventos.html">Eventos</a>
+        <a href="contato.html" class="btn btn-outline">Contato</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-top">
+    <section class="section container">
+      <div class="section-head">
+        <p class="eyebrow">EVENTOS</p>
+        <h1>Espaço dedicado às fotos dos eventos</h1>
+        <p>Aqui ficam as imagens reais da operação, montagem, cortes, atendimento e experiência ao vivo.</p>
+      </div>
+
+      <div class="events-gallery-grid">
+        <figure class="event-slot large"><img src="images/evento1.jpg" alt="Evento 1"></figure>
+        <figure class="event-slot"><img src="images/evento2.jpg" alt="Evento 2"></figure>
+        <figure class="event-slot"><img src="images/evento3.jpg" alt="Evento 3"></figure>
+        <figure class="event-slot"><img src="images/evento4.jpg" alt="Evento 4"></figure>
+        <figure class="event-slot"><img src="images/evento5.jpg" alt="Evento 5"></figure>
+        <figure class="event-slot"><img src="images/evento6.jpg" alt="Evento 6"></figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <strong>Parrilla Silva</strong>
+      <p>Assadores profissionais • Atendimento em todo o Rio Grande do Sul</p>
+    </div>
+  </footer>
+</body>
+</html>

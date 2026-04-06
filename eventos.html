@@ -38,12 +38,12 @@
       </div>
 
       <div class="events-gallery-grid">
-        <figure class="event-slot large"><img src="images/evento1.jpg" alt="Evento 1" onclick="openModal(this)"></figure>
-        <figure class="event-slot large"><img src="images/evento2.jpg" alt="Evento 2" onclick="openModal(this)"></figure>
-        <figure class="event-slot large"><img src="images/evento3.jpg" alt="Evento 3" onclick="openModal(this)"></figure>
-        <figure class="event-slot large"><img src="images/evento4.jpg" alt="Evento 4" onclick="openModal(this)"></figure>
-        <figure class="event-slot large"><img src="images/evento5.jpg" alt="Evento 5" onclick="openModal(this)"></figure>
-        <figure class="event-slot large"><img src="images/evento6.jpg" alt="Evento 6" onclick="openModal(this)"></figure>
+        <figure class="event-slot"><img src="images/evento1.jpg" alt="Evento 1" onclick="openModal(this)"></figure>
+        <figure class="event-slot"><img src="images/evento2.jpg" alt="Evento 2" onclick="openModal(this)"></figure>
+        <figure class="event-slot"><img src="images/evento3.jpg" alt="Evento 3" onclick="openModal(this)"></figure>
+        <figure class="event-slot"><img src="images/evento4.jpg" alt="Evento 4" onclick="openModal(this)"></figure>
+        <figure class="event-slot"><img src="images/evento5.jpg" alt="Evento 5" onclick="openModal(this)"></figure>
+        <figure class="event-slot"><img src="images/evento6.jpg" alt="Evento 6" onclick="openModal(this)"></figure>
       </div>
     </section>
   </main>
@@ -54,31 +54,40 @@
       <p>Assadores profissionais • Atendimento em todo o Rio Grande do Sul</p>
     </div>
   </footer>
+
+  <!-- MODAL -->
+  <div id="imageModal" class="image-modal">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImg" alt="Imagem ampliada">
+  </div>
+
   <script>
-function openModal(img) {
-  const modal = document.getElementById("imageModal");
-  const modalImg = document.getElementById("modalImg");
+    function openModal(img) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImg");
 
-  modal.style.display = "flex";
-  modalImg.src = img.src;
-}
-<!-- Modal -->
-<div id="imageModal" class="image-modal">
-  <span class="close-modal">&times;</span>
-  <img class="modal-content" id="modalImg">
-</div>
-    
-// fechar ao clicar no X
-document.querySelector(".close-modal").onclick = function () {
-  document.getElementById("imageModal").style.display = "none";
-};
+      modal.style.display = "flex";
+      modalImg.src = img.src;
+      modalImg.alt = img.alt || "Imagem ampliada";
+      document.body.style.overflow = "hidden";
+    }
 
-// fechar ao clicar fora
-document.getElementById("imageModal").onclick = function (e) {
-  if (e.target === this) {
-    this.style.display = "none";
-  }
-};
-</script>
+    function closeModal() {
+      document.getElementById("imageModal").style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+
+    document.getElementById("imageModal").addEventListener("click", function (e) {
+      if (e.target.id === "imageModal") {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 </html>

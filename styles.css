@@ -294,23 +294,26 @@ a { color: inherit; text-decoration: none; }
 
 .events-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .events-gallery-grid .large { grid-column: span 2; }
 
-.gallery-item, .event-slot {
+.event-slot {
   overflow: hidden;
-  border-radius: 24px;
-  border: 1px solid var(--line);
-  background: #0d0d0d;
+  border-radius: 16px;
+  background: #000;
+  height: 260px;
 }
 
-.gallery-item img, .event-slot img {
+.event-slot img {
   width: 100%;
-  height: 320px;
+  height: 100%;
   object-fit: cover;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .gallery-logo img {
@@ -463,9 +466,9 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Desktop mais bonito */
-@media (min-width: 768px) {
-  .contact-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 768px) {
+  .event-slot {
+    height: 190px;
   }
 
   .contact-box:last-child {
@@ -473,26 +476,26 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
-/* Modal imagem */
+/* Modal */
 .image-modal {
   display: none;
   position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.95);
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.94);
   align-items: center;
   justify-content: center;
+  padding: 30px;
 }
 
 .modal-content {
-  max-width: 90%;
-  max-height: 85%;
-  border-radius: 12px;
+  max-width: 92vw;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-  animation: zoom 0.3s ease;
 }
 
 @keyframes zoom {
@@ -500,14 +503,11 @@ a { color: inherit; text-decoration: none; }
   to { transform: scale(1); opacity: 1; }
 }
 
-.close-modal {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  color: white;
-  font-size: 40px;
-  cursor: pointer;
-}
+  .close-modal {
+    top: 14px;
+    right: 18px;
+    font-size: 34px;
+  }
 
 /* cursor de clique */
 .event-slot img {
@@ -516,7 +516,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .event-slot img:hover {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 .events-gallery-grid {
   display: grid;

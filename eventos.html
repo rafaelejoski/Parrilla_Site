@@ -62,7 +62,12 @@ function openModal(img) {
   modal.style.display = "flex";
   modalImg.src = img.src;
 }
-
+<!-- Modal -->
+<div id="imageModal" class="image-modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modalImg">
+</div>
+    
 // fechar ao clicar no X
 document.querySelector(".close-modal").onclick = function () {
   document.getElementById("imageModal").style.display = "none";

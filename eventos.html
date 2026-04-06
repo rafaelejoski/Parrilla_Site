@@ -38,12 +38,12 @@
       </div>
 
       <div class="events-gallery-grid">
-        <figure class="event-slot large"><img src="images/evento1.jpg" alt="Evento 1"></figure>
-        <figure class="event-slot"><img src="images/evento2.jpg" alt="Evento 2"></figure>
-        <figure class="event-slot"><img src="images/evento3.jpg" alt="Evento 3"></figure>
-        <figure class="event-slot"><img src="images/evento4.jpg" alt="Evento 4"></figure>
-        <figure class="event-slot"><img src="images/evento5.jpg" alt="Evento 5"></figure>
-        <figure class="event-slot"><img src="images/evento6.jpg" alt="Evento 6"></figure>
+        <figure class="event-slot large"><img src="images/evento1.jpg" alt="Evento 1"onclick="openModal(this)"></figure>
+        <figure class="event-slot large"><img src="images/evento1.jpg" alt="Evento 2"onclick="openModal(this)"></figure>
+        <figure class="event-slot large"><img src="images/evento1.jpg" alt="Evento 3"onclick="openModal(this)"></figure>
+        <figure class="event-slot large"><img src="images/evento1.jpg" alt="Evento 4"onclick="openModal(this)"></figure>
+        <figure class="event-slot large"><img src="images/evento1.jpg" alt="Evento 5"onclick="openModal(this)"></figure>
+        <figure class="event-slot large"><img src="images/evento1.jpg" alt="Evento 6"onclick="openModal(this)"></figure>
       </div>
     </section>
   </main>
@@ -54,5 +54,26 @@
       <p>Assadores profissionais • Atendimento em todo o Rio Grande do Sul</p>
     </div>
   </footer>
+  <script>
+function openModal(img) {
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImg");
+
+  modal.style.display = "flex";
+  modalImg.src = img.src;
+}
+
+// fechar ao clicar no X
+document.querySelector(".close-modal").onclick = function () {
+  document.getElementById("imageModal").style.display = "none";
+};
+
+// fechar ao clicar fora
+document.getElementById("imageModal").onclick = function (e) {
+  if (e.target === this) {
+    this.style.display = "none";
+  }
+};
+</script>
 </body>
 </html>

@@ -57,37 +57,59 @@
 
   <!-- MODAL -->
   <div id="imageModal" class="image-modal">
-    <span class="close-modal" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modalImg" alt="Imagem ampliada">
-  </div>
+  <span class="close-modal" onclick="closeModal()">&times;</span>
+
+  <!-- BOTÕES -->
+  <span class="nav-btn prev" onclick="prevImage()">❮</span>
+  <span class="nav-btn next" onclick="nextImage()">❯</span>
+
+  <img class="modal-content" id="modalImg" alt="Imagem ampliada">
+</div>
 
   <script>
-    function openModal(img) {
-      const modal = document.getElementById("imageModal");
-      const modalImg = document.getElementById("modalImg");
+   const images = [
+    "images/evento1.jpg",
+    "images/evento2.jpg",
+    "images/evento3.jpg",
+    "images/evento4.jpg",
+    "images/evento5.jpg",
+    "images/evento6.jpg"
+  ];
 
-      modal.style.display = "flex";
-      modalImg.src = img.src;
-      modalImg.alt = img.alt || "Imagem ampliada";
-      document.body.style.overflow = "hidden";
-    }
+  let currentIndex = 0;
 
-    function closeModal() {
-      document.getElementById("imageModal").style.display = "none";
-      document.body.style.overflow = "auto";
-    }
+  function openModal(img) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
 
-    document.getElementById("imageModal").addEventListener("click", function (e) {
-      if (e.target.id === "imageModal") {
-        closeModal();
-      }
-    });
+    currentIndex = images.indexOf(img.src.split('/').pop() ? "images/" + img.src.split('/').pop() : img.src);
 
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") {
-        closeModal();
-      }
-    });
+    modal.style.display = "flex";
+    modalImg.src = images[currentIndex];
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    document.getElementById("modalImg").src = images[currentIndex];
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    document.getElementById("modalImg").src = images[currentIndex];
+  }
+
+  // teclado
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeModal();
+    if (e.key === "ArrowRight") nextImage();
+    if (e.key === "ArrowLeft") prevImage();
+  });
   </script>
 </body>
 </html>
